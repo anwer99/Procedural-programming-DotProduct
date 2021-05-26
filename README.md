@@ -1,1 +1,0 @@
-# Procedural-programming-DotProduct

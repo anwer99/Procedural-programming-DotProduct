@@ -1,0 +1,44 @@
+/****************Procedure*************/
+PROCEDURE dot_product(v1[] :INTEGER, v2[] :INTEGER, VAR ps:INTEGER)
+VAR
+    i:INTEGER := 0;
+BEGIN
+   IF (v1==null) THEN
+      print("Invalid vector1")
+   END_IF
+   IF (v2==null) THEN
+       print("Invalid vector")
+   END_IF
+   IF (v1.length!=v2.length) THEN
+      print("Unequal vectors")
+   END_IF
+   FOR i FROM 0 TO v1.Length STEP 1  DO
+        ps := ps+ vect_A[i] * vect_B[i];
+    END_FOR
+       
+END
+/*******************Algorithm***********/
+ALGORITHM orthogonal
+VAR
+    ps,n,i:INTEGER:=0
+    v1: ARRAY_OF Integer[];
+    v2: ARRAY_OF Integer[];
+BEGIN
+    Write("Enter the number of vectors : it should be pair")
+    read(n)
+    IF (n mod 2 ==0) THEN
+    FOR i FROM 0 TO n STEP 1 DO
+        write("Enter the first pair of vectors");
+        read(v1,v2);
+        dot_product(v1,v2,ps)
+        IF (ps==0) THEN
+            print("vectors are orthogonal")
+        ELSE
+            print("vectors are not orthogonal")
+        END_IF
+    END_FOR    
+    END_IF
+    ELSE 
+    print("You should enter a pair number : You cannot “dot-multiply” a scalar and a vector")
+   
+END
